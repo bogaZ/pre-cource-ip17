@@ -7,7 +7,7 @@ const child = [
     { name: "intan", age: 19, gender: "p", birth_month: "march" },
     { name: "kojo", age: 15, gender: "l", birth_month: "march" },
     { name: "sani", age: 17, gender: "p", birth_month: "october" },
-    ];
+];
 
 
 // diberikan data sebagai berikut
@@ -18,7 +18,7 @@ const child = [
 //     // return `Anak dengan umur genap adalah ${c.name}`
 // }
 // })
-const evenAge = child.filter((c) => c.age%2 === 0)
+const evenAge = child.filter((c) => c.age % 2 === 0)
 // Tentukan anak yang lahir pada bulan maret dan umurnya lebih dari atau sama dengan 15
 const aboveAge = child.filter((c) => c.age >= 15 && c.birth_month === 'march')
 // Tentukan anak yang umurnya ganjil dan jenis kelamin nya perempuan
@@ -27,9 +27,9 @@ const aboveAge = child.filter((c) => c.age >= 15 && c.birth_month === 'march')
 //         return c
 //     }
 // })
-const oddAgeGirl = child.filter((c)=> c.age%2 === 1 && c.gender === 'p')
+const oddAgeGirl = child.filter((c) => c.age % 2 === 1 && c.gender === 'p')
 // tentukan anak yang nama nya berawalan huruf "R"
-const childName = child.filter((c)=> c.name[0] === 'r')
+const childName = child.filter((c) => c.name[0] === 'r')
 
 // task 2
 
@@ -37,13 +37,13 @@ const myCars = ['BMW', 'Toyota', 'VW', 'Porche'];
 
 let myCarsInGarage = [];
 
-function insertMyCarIntoGarage (arr) {
+function insertMyCarIntoGarage(arr) {
     // return myCarsInGarage.concat(arr).sort()
 
     // myCarsInGarage.push(...arr)
     // return myCarsInGarage.sort()
 
-	const sortingCar = arr.sort()
+    const sortingCar = arr.sort()
     myCarsInGarage.push(...sortingCar)
     return myCarsInGarage
 }

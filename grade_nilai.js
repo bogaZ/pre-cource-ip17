@@ -1,9 +1,11 @@
 // 1. Kapan dan mengapa menggunakan switch case atau if else, silahkan jelaskan alasannya?
 // switch case digunakan ketika hanya terdapat satu kondisi dimana apakah variabel yang dicek itu sama dengan nilai tertentu
-// If Else digunakan untuk menyeleksi lebih dari satu kondisi yang bervariasi
+// If Else digunakan untuk menyeleksi lebih dari satu kondisi dan variabel yang bervariasi
 
 
 // 2. Terdapat array [0, 5 ,2, 7, 4, 9, 6, 11, 8, 13, 10, 15, 12, 17, 14, 21, 16, 23, 18, 25, 20], cari nilai yang habis dibagi 3, lalu inputkan ke dalam array baru, kemudian tampilkan dalam bentuk array yang baru tersebut. (Bebas menggunakan bahasa apapun)
+
+// 3. Di Universitas Terbuka Indonesia, terdapat mahasiswa/i. Mereka sudah melakukan ujian akhir semester ganjil. Untuk mata kuliah terdapat 8. Untuk rekap nilai mahasiswa/i, dosen membutuhkan aplikasi untuk menentukan mahasiswa/i nilai rerata dan grade. Silahkan untuk membuat aplikasi input sederhana dengan menggunakan control flow. (Bebas menggunakan bahasa apapun)
 
 let arrays = [0, 5, 2, 7, 4, 9, 6, 11, 8, 13, 10, 15, 12, 17, 14, 21, 16, 23, 18, 25, 20]
 
@@ -59,6 +61,31 @@ mataKuliah.forEach(element => {
 
 let average = total / mataKuliah.length
 
-console.log(mataKuliah)
-console.log("rata-rata : " + average)
+let grade = ""
 
+switch (true) {
+    case average <= 50:
+        grade = "D"
+        break;
+
+    case average <= 60:
+        grade = "C"
+        break;
+    case average <= 70:
+        grade = "BC"
+        break;
+    case average <= 80:
+        grade = "B"
+        break;
+    case average <= 85:
+        grade = "AB"
+        break;
+    case average <= 100:
+        grade = "A"
+        break;
+    default: "tidak terdefinisi"
+        break;
+}
+
+console.log(mataKuliah)
+console.log("rata-rata : " + average + " Grade : " + grade)

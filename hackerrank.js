@@ -196,7 +196,7 @@ function taumBday(b, w, bc, wc, z) {
         totalCost = BigInt((b * bc) + (w * wc))
     }
 
-    return totalCost.toString()
+    return totalCost
 
 }
 

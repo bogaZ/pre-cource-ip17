@@ -182,3 +182,21 @@ function timeConversion(s) {
 }
 
 console.log(timeConversion(input))
+
+function taumBday(b, w, bc, wc, z) {
+    // Write your code here
+    let totalCost = 0
+    if ((z + bc) < wc) {
+        // masalah dengan wc
+        totalCost = BigInt((b * bc) + (w * (bc + z)))
+    } else if ((z + wc) < bc) {
+        // masalah dengan bc
+        totalCost = BigInt((w * wc) + (b * (wc + z)))
+    } else {
+        totalCost = BigInt((b * bc) + (w * wc))
+    }
+
+    return totalCost.toString()
+
+}
+

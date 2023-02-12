@@ -400,7 +400,7 @@ function reservearr(arr) {
 
         for (let index1 = 0; index1 < x; index1++) {
             // bawah dengan kanan
-            for (let index = index1; index <= arr[arr.length - 1 - index1].length - 1 - index1; index++) {
+            for (let index = index1; index <= arr[index1].length - 1 - index1; index++) {
                 console.log('proses bawah kanan')
                 // bawah kiri
                 let tmp = arr[arr.length - 1 - index1][index]

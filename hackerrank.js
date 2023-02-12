@@ -202,6 +202,7 @@ function taumBday(b, w, bc, wc, z) {
 
 let string = 'roqfqeylxuyxjfyqterizzkhgvngapvudnztsxeprfp'
 
+// function untuk mengubah string menjadi matrix
 function encryption(s) {
     // Write your code here
     // mengubah string menjadi array of string
@@ -284,6 +285,7 @@ function encryption(s) {
     return output.join(' ')
 }
 
+// funcktion untuk membalik string matrix secara menyilang
 function reservearr(arr) {
     let x = Math.floor(arr.length / 2)
     console.log('balik data secara menyilang sebanyak : ')
@@ -291,7 +293,7 @@ function reservearr(arr) {
 
     for (let index1 = 0; index1 < x; index1++) {
         // bawah dengan kanan
-        for (let index = index1; index <= arr[index1].length - 1 - index1; index++) {
+        for (let index = index1; index < arr[index1].length - 1 - index1; index++) {
             console.log('proses bawah kanan')
             // bawah kiri
             let tmp = arr[arr.length - 1 - index1][index]
@@ -303,128 +305,13 @@ function reservearr(arr) {
             arr[index][arr[index].length - 1 - index1] = tmp
         }
         // atas dengan kiri
-        for (let index = 1 + index1; index < arr[0].length - 1 - index1; index++) {
+        for (let index = 1 + index1; index < arr[index1].length - 1 - index1; index++) {
             console.log('proses kiri atas')
-            let tmp = arr[index][0 + index1]
-            arr[index][0 + index1] = arr[0 + index1][index]
-            arr[0 + index1][index] = tmp
+            let tmp = arr[index][index1]
+            arr[index][index1] = arr[index1][index]
+            arr[index1][index] = tmp
         }
     }
-
-    function encryption(s) {
-        // Write your code here
-        // mengubah string menjadi array of string
-        let newString = s.split(' ').join('')
-        let arrString = newString.split('')
-
-        // menghitung panjang array string 
-        let arrLength = arrString.length
-
-        // menghitung akar dari panjang array string
-        let akar = Math.sqrt(arrLength)
-        let rowcol = []
-        let matrix = []
-        let arrayMatrix = []
-
-        // menyeleksi jika hasilnya bukan bilangan bulat maka ambil 2 akar bilangan terdekat
-        if (!Number.isInteger(akar)) {
-            let akar1 = Math.floor(akar)
-            let akar2 = akar1 + 1
-            rowcol.push(akar1)
-            rowcol.push(akar2)
-            // jika bilangan bulat maka push bilanhan tersebut 2x ke array rowcol
-        } else {
-            rowcol.push(akar)
-            rowcol.push(akar)
-        }
-
-        // nilai terdekat
-        let max = Math.max(...rowcol)
-        let last = 1
-
-        // membuat matrix sesuai dengan jumlah row dan column
-        for (let index = 0; index < arrString.length; index++) {
-            // console.log(arrString[index])
-            if (last !== max) {
-                matrix.push(arrString[index])
-                last++
-            }
-            else {
-                matrix.push(arrString[index])
-                arrayMatrix.push(matrix)
-                matrix = []
-                last = 1
-            }
-        }
-        // melakukan push sisa matrix ke array matrix
-        if (matrix.length !== 0) {
-            arrayMatrix.push(matrix)
-        }
-
-        console.log(arrayMatrix)
-        console.log("\n")
-
-        let newMatrix = []
-        if ((rowcol[0] * rowcol[1]) < arrLength || rowcol[0] === rowcol[1]) {
-            console.log("langsung balik")
-            // jalankan method pembalik
-            reservearr(arrayMatrix)
-        } else {
-            // disisni lanjutanya 
-            arrayMatrix.forEach(element => {
-                if (element.length === max) {
-                    newMatrix.push(element[max - 1])
-                    element.pop()
-                }
-            });
-            // jalankan method pembalik
-            reservearr(arrayMatrix)
-            arrayMatrix.push(newMatrix)
-
-        }
-        let output = []
-        console.log(arrayMatrix)
-        console.log("\n")
-        console.log("row and column : " + rowcol)
-        arrayMatrix.forEach(element => {
-            output.push(element.join(''))
-        });
-
-        return output.join(' ')
-    }
-
-    function reservearr(arr) {
-        let x = Math.floor(arr.length / 2)
-        console.log('balik data secara menyilang sebanyak : ')
-        console.log(x)
-
-        for (let index1 = 0; index1 < x; index1++) {
-            // bawah dengan kanan
-            for (let index = index1; index <= arr[index1].length - 1 - index1; index++) {
-                console.log('proses bawah kanan')
-                // bawah kiri
-                let tmp = arr[arr.length - 1 - index1][index]
-
-                //bawah kiri tuker atas kanan
-                arr[arr.length - 1 - index1][index] = arr[index][arr[index].length - 1 - index1]
-
-                // atas kanan tuker bawah kiri
-                arr[index][arr[index].length - 1 - index1] = tmp
-            }
-            // atas dengan kiri
-            for (let index = 1 + index1; index < arr[0].length - 1 - index1; index++) {
-                console.log('proses kiri atas')
-                let tmp = arr[index][0 + index1]
-                arr[index][0 + index1] = arr[0 + index1][index]
-                arr[0 + index1][index] = tmp
-            }
-        }
-
-
-
-
-    }
-
 }
 
 console.log(encryption(string))

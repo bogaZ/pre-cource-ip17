@@ -315,4 +315,4 @@ function reservearr(arr) {
 }
 
 console.log(encryption(string))
-// console.log(string.split(''))
+console.log('Belajar')

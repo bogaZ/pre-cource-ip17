@@ -315,4 +315,4 @@ function reservearr(arr) {
 }
 
 console.log(encryption(string))
-console.log('Belajar github')
+console.log('Belajar github ok')
